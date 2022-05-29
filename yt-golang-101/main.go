@@ -1,32 +1,31 @@
 package main
 
-import "fmt"
-
-var (
-	name string
-	n1   int
-	n2   int32
+import (
+	"fmt"
+	"strconv"
 )
 
-func main() {
-	msg := "aula 101 - 03"
-	fmt.Println(msg)
-
-	var b0, f, s = true, 2.3, "olá"
-	fmt.Println(b0, f, s)
-
-	var a, b, c int32
-	fmt.Println(a, b, c)
-
-	var total int
-	total++
-	fmt.Println("total:", total)
-
-	name = "hiago"
+func Hello(name string) {
 	fmt.Println("hello,", name, "!")
+}
 
-	var x, y = 10, 20
-	fmt.Println(x, y)
-	x, y = y, x
-	fmt.Println(x, y)
+func sum(a, b int) int {
+	return a + b
+}
+
+func convertAndSum(a int, b string) (total int, err error) {
+	i, _ := strconv.Atoi(b)
+	if err != nil {
+		return
+	}
+
+	total = a + i
+	return
+}
+
+func main() {
+	Hello("hiago")
+	fmt.Println("total:", sum(10, 5))
+	total, err := convertAndSum(10, "5")
+	fmt.Println("total:", total, err)
 }
