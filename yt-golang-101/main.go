@@ -1,55 +1,47 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"os"
-)
-
-var (
-	cara, coroa int
-)
-
-func lancarMoeda(lado string) {
-	switch lado {
-	case "cara":
-		cara++
-	case "coroa":
-		coroa++
-	default:
-		fmt.Println("caiu em pé")
-	}
-}
+import "fmt"
 
 func main() {
-	a, b := 10, 23
-
-	if a > b {
-		fmt.Println("a é maior do que b")
-	} else if a < b {
-		fmt.Println("a é menor do que b")
-	} else {
-		fmt.Println("a e b são iguais")
+	for i := 0; i < 3; i++ {
+		fmt.Println(i)
 	}
 
-	switch {
-	case a > b:
-		fmt.Println("a é maior do que b")
-	case a < b:
-		fmt.Println("a é menor do que b")
-	default:
-		fmt.Println("a e b são iguais")
+	fmt.Println("--------------")
+
+	names := []string{"hiago", "joão", "matheus"}
+
+	for i := 0; i < len(names); i++ {
+		fmt.Println(names[i])
 	}
 
-	file, err := os.Open("hello.txt")
-	if err != nil {
-		log.Panic(err)
+	fmt.Println("--------------")
+
+	for key, value := range names {
+		fmt.Println(key, ":", value)
 	}
 
-	data := make([]byte, 100)
-	if _, err := file.Read(data); err != nil {
-		log.Panic(err)
-	} else {
-		fmt.Println(string(data))
+	fmt.Println("--------------")
+
+	for _, value := range names {
+		fmt.Println(value)
 	}
+
+	fmt.Println("--------------")
+
+	var i int
+	for i < len(names) {
+		fmt.Println(names[i])
+		i++
+	}
+
+	fmt.Println("--------------")
+
+	for {
+		fmt.Println("inside infinite loop")
+		break
+	}
+
+	fmt.Println("--------------")
+
 }
